@@ -13,6 +13,7 @@ This guide provides step-by-step instructions to set up a project with:
 
 ## 1. Create a new Vite + React project
 
+Open up the terminal and copy this into the terminal.
 ```bash
 # Create a new project with Vite
 npm create vite@latest my-project
@@ -23,14 +24,17 @@ When prompted:
 - Select "TypeScript" as variant
 - Change to the project directory after creation
 
+To get into the project copy this and install the dependencies.
 ```bash
 cd my-project
 # Install dependencies
 npm install
 ```
+In Cursor you will need to select Open Project and navigate to the project you created. You can then install the dependencies after you open the project. To open a terminal you can go to the terminal tab in the top left bar and select New Terminal.
 
 ## 2. Set up Tailwind CSS
 
+Use the terminal to install Tailwind.
 ```bash
 # Install Tailwind CSS and the Vite plugin
 npm install tailwindcss @tailwindcss/vite
@@ -38,6 +42,7 @@ npm install tailwindcss @tailwindcss/vite
 
 Replace everything in `src/index.css` with the following:
 
+On the left hand side of Cursor, navigate to all the files and select index.css from under the src folder.
 ```css
 @import "tailwindcss";
 ```
@@ -77,7 +82,7 @@ Edit the `tsconfig.app.json` file:
       "@/*": [
         "./src/*"
       ]
-    }
+    },
     // ...other settings...
   }
 }
@@ -85,6 +90,7 @@ Edit the `tsconfig.app.json` file:
 
 ## 4. Configure Vite
 
+Back in the terminal
 ```bash
 # Install required Node.js type definitions
 npm install -D @types/node
@@ -111,6 +117,7 @@ export default defineConfig({
 
 ## 5. Configure Shadcn UI
 
+Back in the terminal
 ```bash
 # Run the shadcn init command
 npx shadcn@latest init
@@ -122,6 +129,8 @@ When prompted:
 - Enter "./src/components" as components path
 - Enter "@/components" as components import alias
 
+If something pops up saying you are using a different version of React, just select the --force option and continue.
+
 Install some basic UI components:
 
 ```bash
@@ -130,6 +139,7 @@ npx shadcn@latest add input
 npx shadcn@latest add card
 npx shadcn@latest add form
 ```
+If something pops up saying you are using a different version of React, just select the --force option and continue.
 
 ## 6. Set up Supabase
 
@@ -140,13 +150,13 @@ npm install @supabase/supabase-js
 
 Sign up at [supabase.com](https://supabase.com) and create a new project.
 
-After creating a project, go to the "Settings" > "API" section to find your:
+After creating a project, go to the "Project Settings" > "Data API" section to find your:
 - Project URL
 - Project API Key (anon, public)
 
 ## 7. Create environment variables
 
-Create a `.env` file in your project root:
+Create a `.env` file in your project root and add this piece of code, filling in the correct areas.
 
 ```
 VITE_SUPABASE_URL=your_supabase_project_url
@@ -162,7 +172,7 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## 8. Set up Supabase client
 
-Create a file `src/lib/supabase.ts`:
+Create a file `src/lib/supabase.ts` and copy the following code into it:
 
 ```typescript
 import { createClient } from '@supabase/supabase-js';
@@ -205,6 +215,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 ## 10. Create an Auth Context
 
 Create a file `src/contexts/AuthContext.tsx`:
+
+If you don't have a contexts folder under src, you can hit create folder then under that folder create the file and paste the following code into it.
 
 ```typescript
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
@@ -295,6 +307,8 @@ export const useAuth = () => {
 ### Login Page
 
 Create `src/pages/Login.tsx`:
+
+If you don't have a pages folder under src, you can hit create folder then under that folder create the file and paste the following code into it.
 
 ```typescript
 import { useState } from 'react';
@@ -392,7 +406,7 @@ export default function Login() {
 
 ### Register Page
 
-Create `src/pages/Register.tsx`:
+Create `src/pages/Register.tsx` and copy the following code into it:
 
 ```typescript
 import { useState } from 'react';
@@ -503,7 +517,7 @@ export default function Register() {
 
 ### Reset Password Page
 
-Create `src/pages/ResetPassword.tsx`:
+Create `src/pages/ResetPassword.tsx` and copy the following code into it:
 
 ```typescript
 import { useState } from 'react';
@@ -586,7 +600,7 @@ export default function ResetPassword() {
 
 ## 12. Create a Hero Page
 
-Create `src/pages/Home.tsx`:
+Create `src/pages/Home.tsx` and copy the following code into it:
 
 ```typescript
 import { useAuth } from '../contexts/AuthContext';
